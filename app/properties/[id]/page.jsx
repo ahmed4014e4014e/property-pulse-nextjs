@@ -1,10 +1,8 @@
-'use client';
-
-const PropertyPage = () => {
-  console.log('Property Page Component');
+const PropertyPage = ({ params }) => {
   return (
-    <div>Property Page</div>
+    <div>
+      Property Page {params.id}
+    </div>
   );
-}
-
+};
 export default PropertyPage;
