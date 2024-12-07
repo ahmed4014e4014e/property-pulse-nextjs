@@ -6,7 +6,7 @@ import '@/assets/styles/globals.css';
 export const metadata = {
   title: 'Property Pulse',
   keywords: 'rental, real estate, property',
-  description: 'Find the perfect rental property',
+  description: 'F rty',
 };
 
 
