@@ -11,8 +11,8 @@
   "dependencies": {
     "eslint-config-next": "^14.2.8",
     "mongodb": "^6.8.0",
-    "mongoose": "^8.5.3",
-    "next": "^14.2.8",
+    "mongoose": "^8.9.4",
+    "next": "^14.2.23",
     "next-auth": "^4.24.7",
     "property-pulse-nextjs": "file:",
     "react": "^18.3.1",

@@ -11,7 +11,7 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 const Navbar = () => {
 
   const { data: session } = useSession();
-  console.log(session);
+  const profileImage = session?.user?.image;
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
@@ -112,7 +112,7 @@ const Navbar = () => {
                   {providers && Object.values(providers).map((provider, index) => (
 
                     <button
-                      key={index} className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2"
+                      key={index} className="flex items-center text-white bg-gray-700 hover:bg-gray-900 hover:text-white rounded-md px-3 py-2" onClick={() => signIn(provider.id)}
                     >
                       <FaGoogle className='text-white mr-2' />
                       <span>Login or Register</span>
@@ -172,7 +172,9 @@ const Navbar = () => {
                       <span className="sr-only">Open user menu</span>
                       <Image
                         className="h-8 w-8 rounded-full"
-                        src={profileDefault}
+                        src={profileImage || profileDefault}
+                        width={40}
+                        height={40}
                         alt=""
                       />
                     </button>
@@ -209,6 +211,10 @@ const Navbar = () => {
                         role="menuitem"
                         tabIndex="-1"
                         id="user-menu-item-2"
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          signOut();
+                        }}
                       >
                         Sign Out
                       </button>
